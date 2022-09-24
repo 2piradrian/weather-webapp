@@ -11,6 +11,7 @@ const roundNumbers = (number) => {
 	return Math.round(number);
 };
 
+// funcion que renderiza las card
 const renderCard = (dataObj) => {
 	return `
     <div class="container" id="yourCity">
@@ -50,4 +51,9 @@ const renderCard = (dataObj) => {
 					</div>
 				</div>
     `;
+};
+
+//funcion que muestra en pantalla las cards
+const showCards = (citiesList) => {
+	$cardContainer.innerHTML = citiesList.map((city) => renderCard(city));
 };
