@@ -64,7 +64,11 @@ body {
 	color: var(--contrast);
 	background-color: var(--mainColor);
 }
-
+.cardContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
 .container {
 	width: 400px;
 	margin: 20px;
