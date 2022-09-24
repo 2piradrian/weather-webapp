@@ -122,3 +122,11 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+.fa-x {
+	font-size: 18px;
+	position: relative;
+	bottom: 5px;
+	left: 350px;
+	cursor: pointer;
+}
