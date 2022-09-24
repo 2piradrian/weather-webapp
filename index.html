@@ -4,8 +4,43 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://kit.fontawesome.com/33f755772d.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="style.css" />
 		<title>Weather WebApp</title>
 	</head>
-	<body></body>
+	<body>
+		<header class="appHeader">
+			<h1>¿Cómo está el tiempo en...?</h1>
+		</header>
+		<main class="appMain">
+			<form class="addCityForm" action="">
+				<input type="text" name="city" id="addCity" class="addCity" placeholder="Añadir una ciudad..." />
+				<button class="submitCity" id="submitCity">
+					<i class="fa-solid fa-plus"></i>
+				</button>
+			</form>
+			<section class="cardContainer">
+				<div class="container">
+					<h5 class="city">La Calera.</h5>
+					<div class="mainInfo">
+						<div class="description">
+							<p class="timeDescription">Nublado.</p>
+							<div class="temps">
+								<p class="feelsLike">S.T. 17º</p>
+								<p class="temperature">23º</p>
+							</div>
+							<div class="minmax">
+								<i class="fa-solid fa-arrow-down"></i>
+								<p class="min">14º</p>
+								<i class="fa-solid fa-arrow-up"></i>
+								<p class="max">24º</p>
+							</div>
+						</div>
+						<div class="imgContainer"></div>
+					</div>
+					<div class="secondaryInfo"></div>
+				</div>
+			</section>
+		</main>
+	</body>
 </html>

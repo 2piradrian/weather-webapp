@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap");
+
+:root {
+	--mainColor: #48435c;
+	--secondary: #5a5766;
+	--contrast: #f9f9f9;
+	--background: #1c1c1c;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: "Montserrat", sans-serif;
+	color: var(--contrast);
+	background-color: var(--background);
+}
+
+.appHeader {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.appMain {
+	margin: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.addCityForm {
+	gap: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.addCity {
+	height: 40px;
+	width: 230px;
+	padding: 5px;
+	outline: none;
+	border-radius: 8px 0px 0px 8px;
+	color: var(--contrast);
+	border: 3px solid var(--mainColor);
+	background-color: var(--mainColor);
+}
+
+.submitCity {
+	height: 40px;
+	width: 45px;
+	padding: 5px;
+	text-align: center;
+	border: 0;
+	cursor: pointer;
+	border-radius: 0px 8px 8px 0px;
+	color: var(--contrast);
+	background-color: var(--mainColor);
+}
+
+.container {
+	margin: 20px;
+	padding: 20px;
+	border-radius: 8px;
+	background-color: var(--mainColor);
+}
+
+.timeDescription {
+	font-size: 12px;
+}
+
+.temps {
+	display: flex;
+	flex-direction: column;
+	margin: 5px 0px;
+	gap: 2px;
+}
+
+.feelsLike {
+	font-size: 10px;
+}
+
+.temperature {
+	font-size: 38px;
+}
+
+.minmax {
+	display: flex;
+	gap: 5px;
+}
