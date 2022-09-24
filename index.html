@@ -20,7 +20,7 @@
 				</button>
 			</form>
 			<section class="cardContainer">
-				<div class="container">
+				<div class="container" id="yourCity">
 					<h5 class="city">La Calera.</h5>
 					<div class="mainInfo">
 						<div class="description">
@@ -36,9 +36,24 @@
 								<p class="max">24º</p>
 							</div>
 						</div>
-						<div class="imgContainer"></div>
+						<div class="imgContainer">
+							<img src="/assets/02d.png" alt="Weather image" srcset="" />
+						</div>
 					</div>
-					<div class="secondaryInfo"></div>
+					<div class="secondaryInfo">
+						<div class="humidityInfo">
+							<i class="fa-solid fa-droplet"></i>
+							<p class="humidity">47%</p>
+						</div>
+						<div class="pressureInfo">
+							<i class="fa-solid fa-hurricane"></i>
+							<p class="pressure">1230hP</p>
+						</div>
+						<div class="windInfo">
+							<i class="fa-solid fa-wind"></i>
+							<p id="wind">10Km/h</p>
+						</div>
+					</div>
 				</div>
 			</section>
 		</main>
