@@ -55,5 +55,53 @@ const renderCard = (dataObj) => {
 
 //funcion que muestra en pantalla las cards
 const showCards = (citiesList) => {
-	$cardContainer.innerHTML = citiesList.map((city) => renderCard(city));
+	$cardContainer.innerHTML = citiesList.map((city) => renderCard(city)).join("");
 };
+
+//funcion para buscar ciudad
+const formValidation = async (e) => {
+	e.preventDefault();
+	//obtener elemeto de API
+	const searchedCity = $addCity.value.trim();
+
+	//validaciones
+	if (searchedCity === "") return alert("Por favor ingrese una ciudad");
+
+	const loadCity = await requestCity(searchedCity);
+	if (!loadCity.id) {
+		$addCityForm.reset();
+		return alert("La ciudad ingresada no existe.");
+	} else if (cities.some((city) => city.id === loadCity.id)) {
+		$addCityForm.reset();
+		return alert("La ciudad ingresada ya está en la lista.");
+	}
+	addToCitiesList(loadCity);
+};
+
+//añadir a lista de ciudades
+const addToCitiesList = (city) => {
+	cities = [city, ...cities];
+	showCards(cities);
+	saveLocalStorage(cities);
+	$addCityForm.reset();
+};
+
+//eliminar ciudades
+const removeCity = (e) => {
+	if (!e.target.classList.contains("fa-x")) return;
+	const filterId = Number(e.target.dataset.id);
+	if (window.confirm("¿Seguro que desea eliminar la card?")) {
+		cities = cities.filter((city) => city.id !== filterId);
+		saveLocalStorage(cities);
+		showCards(cities);
+	}
+};
+
+const init = () => {
+	//renderCard(requestLocation());
+	$addCityForm.addEventListener("submit", formValidation);
+	$cardContainer.addEventListener("click", removeCity);
+	showCards(cities);
+};
+
+init();

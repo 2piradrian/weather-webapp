@@ -16,8 +16,11 @@ const requestCity = async (city) => {
 };
 const requestLocation = async () => {
 	// pre request ->
-	const position = navigator.geolocation.getCurrentPosition;
-	const { latitude, longitude } = position.coords;
+	const position = navigator.geolocation.getCurrentPosition(() => {
+		console.log(position.coords);
+		return ({ latitude, longitude } = position.coords);
+	});
+
 	const url = `https://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
 	// request ->
 	const response = await fetch(url);
