@@ -19,7 +19,10 @@ body {
 	color: var(--contrast);
 	background-color: var(--background);
 }
-
+img {
+	height: 150px;
+	width: auto;
+}
 .appHeader {
 	margin: 10px;
 	display: flex;

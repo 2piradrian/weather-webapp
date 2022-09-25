@@ -14,16 +14,16 @@ const requestCity = async (city) => {
 	const data = await response.json();
 	return data;
 };
-const requestLocation = async () => {
+const getLocation = () => {
+	navigator.geolocation.getCurrentPosition(requestLocation);
+};
+const requestLocation = async (position) => {
 	// pre request ->
-	const position = navigator.geolocation.getCurrentPosition(() => {
-		console.log(position.coords);
-		return ({ latitude, longitude } = position.coords);
-	});
-
+	const { latitude, longitude } = position.coords;
 	const url = `https://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
 	// request ->
 	const response = await fetch(url);
 	const data = await response.json();
-	return data;
+	addLocalCard(data);
+	return showCards(cities);
 };

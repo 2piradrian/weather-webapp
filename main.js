@@ -13,15 +13,16 @@ const roundNumbers = (number) => {
 
 // funcion que renderiza las card
 const renderCard = (dataObj) => {
+	console.log("data", dataObj);
 	return `
     <div class="container" id="yourCity">
                     <i class="fa-solid fa-x" data-id="${dataObj.id}"></i>
 					<h5 class="city">${dataObj.name}, ${dataObj.sys.country}</h5>
 					<div class="mainInfo">
 						<div class="description">
-							<p class="timeDescription">${dataObj.weather.description}</p>
+							<p class="timeDescription">${dataObj.weather[0].description}</p>
 							<div class="temps">
-								<p class="feelsLike">S.T. ${roundNumbers(dataObj.main.feels_Like)}º</p>
+								<p class="feelsLike">S.T. ${roundNumbers(dataObj.main.feels_like)}º</p>
 								<p class="temperature">${roundNumbers(dataObj.main.temp)}º</p>
 							</div>
 							<div class="minmax">
@@ -96,12 +97,15 @@ const removeCity = (e) => {
 		showCards(cities);
 	}
 };
+const addLocalCard = (location) => {
+	if (cities.some((city) => city.id === location.id)) return;
+	cities = [location, ...cities];
+};
 
-const init = () => {
-	//renderCard(requestLocation());
+const init = async () => {
 	$addCityForm.addEventListener("submit", formValidation);
 	$cardContainer.addEventListener("click", removeCity);
-	showCards(cities);
+	getLocation();
 };
 
 init();
